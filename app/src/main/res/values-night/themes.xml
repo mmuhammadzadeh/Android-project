@@ -1,0 +1,19 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.MyMusicApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#3D8AAD</item>
+        <item name="colorPrimaryVariant">#1A3FAD</item>
+        <item name="colorOnPrimary">#1F0303</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">#8E0D3D</item>
+        <item name="colorSecondaryVariant">#E92A1C</item>
+        <item name="colorOnSecondary">#140101</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">#00050505</item>
+        <!-- Customize your theme here. -->
+        <!-- Hide the Title Bar and Action Bar -->
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+    </style>
+</resources>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/imageViewDetailPlaylistCover"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_music_logo" />
+
+    <TextView
+        android:id="@+id/textViewDetailPlaylistName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Playlist Name"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textViewDetailPlaylistSongCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Song Count: 10"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/buttonPlayPlaylist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play Playlist" />
+
+    <RecyclerView
+        android:id="@+id/recyclerViewPlaylistSongs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

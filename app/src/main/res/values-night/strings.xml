@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="shuffle_btn">پخش تصادفی</string>
+    <string name="playlist_btn">پلی‌لیست‌های پیشنهادی</string>
+    <string name="for_you">برای شما</string>
+    <string name="selectiv_list">پلی‌لیست نمونه</string>
+    <string name="title_song">عنوان آهنگ</string>
+    <string name="name_khanandeh">نام خواننده</string>
+    <string name="songs">آهنگ‌ها</string>
+</resources>

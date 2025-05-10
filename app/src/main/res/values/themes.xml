@@ -1,0 +1,29 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.MyMusicApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- رنگ‌های اصلی -->
+        <item name="colorPrimary">#BFB035</item>
+        <item name="colorPrimaryVariant">#67A817</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+
+        <!-- پس‌زمینه و متن -->
+        <item name="android:windowBackground">#8EB2B4</item>
+        <item name="android:colorBackground">#160F0F</item>
+        <item name="android:textColor">#FFFFFF</item>
+
+        <!-- رنگ نوار پایین -->
+        <item name="bottomNavigationStyle">@style/Widget.BottomNavigationView.Dark</item>
+
+        <!-- فونت -->
+        <item name="android:fontFamily">@font/roboto</item>
+        <!-- Hide the Title Bar and Action Bar -->
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+    </style>
+
+    <!-- نوار پایین سفارشی -->
+    <style name="Widget.BottomNavigationView.Dark" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
+        <item name="android:background">#4CAF50</item>
+        <item name="itemIconTint">@color/bottom_nav_color</item>
+        <item name="itemTextColor">@color/bottom_nav_color</item>
+    </style>
+</resources>
