@@ -43,8 +43,8 @@ public class PlaylistDetailsActivity extends AppCompatActivity {
 
         // ساخت لیست آهنگ‌ها برای نمایش
         musicList = new ArrayList<>();
-        musicList.add(new Music("Song 1", "Artist 1", R.drawable.ic_music_logo));
-        musicList.add(new Music("Song 2", "Artist 2", R.drawable.ic_music_logo));
+        musicList.add(new Music("Song 1", "Artist 1", "https://musictag.ir/images/cover1.jpg", "https://musictag.ir/music/song1.mp3"));
+        musicList.add(new Music("Song 2", "Artist 2", "https://musictag.ir/images/cover2.jpg", "https://musictag.ir/music/song2.mp3"));
 
         // تنظیم RecyclerView
         recyclerViewSongs.setLayoutManager(new LinearLayoutManager(this));

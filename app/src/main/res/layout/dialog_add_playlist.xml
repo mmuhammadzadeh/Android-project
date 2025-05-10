@@ -8,7 +8,8 @@
         android:id="@+id/editTextPlaylistName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="نام پلی‌لیست" />
+        android:hint="نام پلی‌لیست"
+        android:textColor="#ABA8A8" />
 
     <Button
         android:id="@+id/buttonAddPlaylist"

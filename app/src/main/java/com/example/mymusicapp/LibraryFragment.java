@@ -26,9 +26,9 @@ public class LibraryFragment extends Fragment {
         playlists = new ArrayList<>();
 
         // دیتای تستی
-        Music m1 = new Music("آهنگ اول", "خواننده اول", R.raw.rann);
-        Music m2 = new Music("آهنگ دوم", "خواننده دوم", R.raw.rann);
-        Music m3 = new Music("آهنگ سوم", "خواننده سوم", R.raw.rann);
+        Music m1 = new Music("آهنگ اول", "خواننده اول","https://musictag.ir/images/cover1.jpg", "https://musictag.ir/music/song1.mp3");
+        Music m2 = new Music("آهنگ دوم", "خواننده دوم", "https://musictag.ir/images/cover2.jpg", "https://musictag.ir/music/song2.mp3");
+        Music m3 = new Music("آهنگ سوم", "خواننده سوم", "https://musictag.ir/images/cover3.jpg", "https://musictag.ir/music/song3.mp3");
 
         Playlist playlist1 = new Playlist("پاپ", R.drawable.ic_account);
         playlist1.addMusic(m1);

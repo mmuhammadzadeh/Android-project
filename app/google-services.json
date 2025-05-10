@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "330341740014",
+    "project_id": "music-cd2ae",
+    "storage_bucket": "music-cd2ae.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:330341740014:android:46f7c898e540c8403cb2ff",
+        "android_client_info": {
+          "package_name": "com.example.mymusicapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZS6XuDMhysWbzr2-0wVCWHoPh7x7Hs4c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

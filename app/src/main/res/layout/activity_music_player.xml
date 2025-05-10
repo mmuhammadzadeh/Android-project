@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/black"
+    android:background="#3A0202"
     android:padding="16dp">
 
     <ImageView
@@ -48,42 +49,53 @@
         android:progress="0"
         android:max="100"/>
 
-    <!-- Play/Pause Button -->
-    <ImageButton
-        android:id="@+id/buttonPlayPause"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_below="@id/seekBarProgress"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
-        android:src="@drawable/ic_play2"
-        android:background="?android:attr/selectableItemBackground"
-        android:contentDescription="Play/Pause"/>
+
 
     <!-- Next/Previous Buttons -->
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/buttonPlayPause"
-        android:layout_marginTop="24dp">
+        android:layout_below="@+id/seekBarProgress"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginEnd="54dp"
+        android:orientation="horizontal"
+        android:padding="35dp"
+        tools:ignore="NotSibling">
 
         <!-- Previous Button -->
         <ImageButton
             android:id="@+id/buttonPrevious"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:src="@drawable/ic_previous2"
+            android:layout_margin="15dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="Previous"
+            android:src="@drawable/ic_previous2" />
+
+        <!-- Play/Pause Button -->
+        <ImageButton
+            android:id="@+id/buttonPlayPause"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_below="@id/seekBarProgress"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_margin="15dp"
             android:background="?android:attr/selectableItemBackground"
-            android:contentDescription="Previous"/>
+            android:contentDescription="Play/Pause"
+            android:src="@drawable/ic_play2" />
 
         <!-- Next Button -->
         <ImageButton
             android:id="@+id/buttonNext"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:background="?android:attr/selectableItemBackground"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_margin="15dp"
+            android:background="@android:color/transparent"
             android:contentDescription="Next"
             android:src="@drawable/ic_next2" />
     </LinearLayout>

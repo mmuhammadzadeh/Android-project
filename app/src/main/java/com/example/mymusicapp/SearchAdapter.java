@@ -7,54 +7,45 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
-import java.util.List;
 import com.bumptech.glide.Glide;
 
+import java.util.List;
 
-public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicViewHolder> {
+public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchViewHolder> {
 
     private Context context;
     private List<Music> musicList;
 
-    public MusicAdapter(Context context, List<Music> musicList) {
+    public SearchAdapter(Context context, List<Music> musicList) {
         this.context = context;
         this.musicList = musicList;
     }
 
     @Override
-    public MusicViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public SearchViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.item_music, parent, false);
-        return new MusicViewHolder(view);
+        return new SearchViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(MusicViewHolder holder, int position) {
-        if (musicList == null || position >= musicList.size()) return;
-
+    public void onBindViewHolder(SearchViewHolder holder, int position) {
         Music music = musicList.get(position);
         holder.textViewTitle.setText(music.getTitle());
         holder.textViewArtist.setText(music.getArtist());
-
-        // اگه تصویر از URL باشه باید با Glide/Coil/...
-        // holder.imageViewCover.setImageResource(music.getCoverResId());
         Glide.with(context).load(music.getCoverUrl()).into(holder.imageViewCover);
 
-        // 👉 اضافه کردن کد کلیک
+        // افزودن کلیک برای ارسال اطلاعات به MusicPlayerActivity
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, MusicPlayerActivity.class);
-            intent.putExtra("position", position);
-
-            // تبدیل لیست آهنگ‌ها به ArrayList Parcelable
-            ArrayList<Music> musicArrayList = new ArrayList<>(musicList);
-            intent.putParcelableArrayListExtra("musicList", musicArrayList);
-
+            intent.putExtra("title", music.getTitle());
+            intent.putExtra("artist", music.getArtist());
+            intent.putExtra("coverUrl", music.getCoverUrl());
+            intent.putExtra("audioUrl", music.getAudioUrl());
             context.startActivity(intent);
         });
-
-
     }
 
     @Override
@@ -62,17 +53,11 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicViewHol
         return musicList != null ? musicList.size() : 0;
     }
 
-    // ✅ متد صحیح setMusicList در کلاس اصلی آداپتر
-    public void setMusicList(List<Music> musicList) {
-        this.musicList = musicList;
-        notifyDataSetChanged();
-    }
-
-    public static class MusicViewHolder extends RecyclerView.ViewHolder {
+    public static class SearchViewHolder extends RecyclerView.ViewHolder {
         TextView textViewTitle, textViewArtist;
         ImageView imageViewCover;
 
-        public MusicViewHolder(View itemView) {
+        public SearchViewHolder(View itemView) {
             super(itemView);
             textViewTitle = itemView.findViewById(R.id.textViewMusicTitle);
             textViewArtist = itemView.findViewById(R.id.textViewMusicArtist);
@@ -80,3 +65,4 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicViewHol
         }
     }
 }
+

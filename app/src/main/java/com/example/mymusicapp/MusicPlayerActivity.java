@@ -1,112 +1,122 @@
+// MusicPlayerActivity.java
 package com.example.mymusicapp;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.SeekBar;
 import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.io.IOException;
+import com.bumptech.glide.Glide;
+
+import java.util.List;
 
 public class MusicPlayerActivity extends AppCompatActivity {
+    private List<Music> musicList;
+    private int currentPosition;
 
-    private TextView textViewSongTitle, textViewArtist;
-    private ImageView imageViewCover;
-    private SeekBar seekBarProgress;
-    private ImageButton  buttonPlayPause, buttonPrevious, buttonNext;
-
+    private TextView titleText, artistText;
+    private ImageView coverImage, playPauseBtn, btnNext, btnPrev;
     private MediaPlayer mediaPlayer;
+    private boolean isPlaying = false;
+    private String audioUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_music_player);
 
-        textViewSongTitle = findViewById(R.id.textViewSongTitle);
-        textViewArtist = findViewById(R.id.textViewArtist);
-        imageViewCover = findViewById(R.id.imageViewCover);
-        seekBarProgress = findViewById(R.id.seekBarProgress);
-        buttonPlayPause = findViewById(R.id.buttonPlayPause);
-        buttonPrevious = findViewById(R.id.buttonPrevious);
-        buttonNext = findViewById(R.id.buttonNext);
+        titleText = findViewById(R.id.textViewSongTitle);
+        artistText = findViewById(R.id.textViewArtist);
+        coverImage = findViewById(R.id.imageViewCover);
+        playPauseBtn = findViewById(R.id.buttonPlayPause);
+        btnNext = findViewById(R.id.buttonNext);
+        btnPrev = findViewById(R.id.buttonPrevious);
 
-        // دریافت داده‌ها از Intent (مثلاً عنوان آهنگ، هنرمند و تصویر کاور)
-        String songTitle = getIntent().getStringExtra("SONG_TITLE");
-        String artist = getIntent().getStringExtra("ARTIST");
-        int coverImage = getIntent().getIntExtra("COVER_IMAGE", R.drawable.ic_music_logo);
+        // دریافت داده‌ها از Intent
+        Intent intent = getIntent();
+        String title = intent.getStringExtra("title");
+        String artist = intent.getStringExtra("artist");
+        String coverUrl = intent.getStringExtra("coverUrl");
+        String audioUrl = intent.getStringExtra("audioUrl");
 
-        textViewSongTitle.setText(songTitle);
-        textViewArtist.setText(artist);
-        imageViewCover.setImageResource(coverImage);
+        musicList = getIntent().getParcelableArrayListExtra("musicList");
+        currentPosition = getIntent().getIntExtra("position", 0);
 
-        // Initialize the MediaPlayer
-        mediaPlayer = new MediaPlayer();
-
-        // Example file path (update with the real path or URL)
-        String songPath = "https://dl.musicdel.ir/Music/1402/09/mostafa_fatahi_mahigir.mp3"; // or a local file path
-
-        try {
-            mediaPlayer.setDataSource(songPath); // Set the music file source
-            mediaPlayer.prepare(); // Prepare the MediaPlayer
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (musicList != null && !musicList.isEmpty()) {
+            playMusic(audioUrl);
         }
 
-        // عملکرد دکمه play/pause
-        buttonPlayPause.setOnClickListener(v -> {
-            // Add logic for play/pause functionality
-            if (isPlaying()) {
-                // Pause the song
-                pauseSong();
+        // نمایش اطلاعات آهنگ
+        titleText.setText(title);
+        artistText.setText(artist);
+        Glide.with(this).load(coverUrl).into(coverImage);
+
+        // پخش آهنگ
+        playMusic(audioUrl);
+
+        playPauseBtn.setOnClickListener(v -> {
+            if (isPlaying) {
+                pauseMusic();
             } else {
-                // Play the song
-                playSong();
+                playMusic(audioUrl);
             }
         });
-        // Next/Previous buttons functionality
-        buttonPrevious.setOnClickListener(view -> {
-            // Add logic for previous song
-            playPreviousSong();
-        });
+        btnNext.setOnClickListener(v -> playNext());
+        btnPrev.setOnClickListener(v -> playPrevious());
 
-        buttonNext.setOnClickListener(view -> {
-            // Add logic for next song
-            playNextSong();
-        });
-    }
-    private boolean isPlaying() {
-        // Add logic to check if the song is currently playing
-        return mediaPlayer.isPlaying();
     }
 
-    private void playSong() {
-        // Logic to start the song
-        mediaPlayer.start();
-        buttonPlayPause.setImageResource(R.drawable.ic_pause); // Change icon to Pause
+    private void playMusic(String audioUrl) {
+        if (mediaPlayer == null) {
+            mediaPlayer = new MediaPlayer();
+            try {
+                mediaPlayer.setDataSource(audioUrl); // لینک آدرس آنلاین آهنگ
+                mediaPlayer.prepare(); // آماده‌سازی برای پخش
+                mediaPlayer.start(); // شروع پخش
+                isPlaying = true;
+                playPauseBtn.setImageResource(R.drawable.ic_pause);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            mediaPlayer.start();
+            isPlaying = true;
+            playPauseBtn.setImageResource(R.drawable.ic_pause);
+        }
     }
 
-    private void pauseSong() {
-        // Logic to pause the song
-        mediaPlayer.pause();
-        buttonPlayPause.setImageResource(R.drawable.ic_play); // Change icon to Play
-    }
-
-    private void playPreviousSong() {
-        // Logic to play the previous song
-    }
-
-    private void playNextSong() {
-        // Logic to play the next song
+    private void pauseMusic() {
+        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+            mediaPlayer.pause();
+            isPlaying = false;
+            playPauseBtn.setImageResource(R.drawable.ic_play);
+        }
     }
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
         if (mediaPlayer != null) {
-            mediaPlayer.release(); // Release the MediaPlayer when activity is destroyed
+            mediaPlayer.release(); // آزادسازی منابع
+            mediaPlayer = null;
+        }
+        super.onDestroy();
+    }
+
+    private void playNext() {
+        if (musicList != null && currentPosition < musicList.size() - 1) {
+            currentPosition++;
+            playMusic(audioUrl);
         }
     }
+
+    private void playPrevious() {
+        if (musicList != null && currentPosition > 0) {
+            currentPosition--;
+            playMusic(audioUrl);
+        }
+    }
+
 }

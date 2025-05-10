@@ -11,20 +11,11 @@
             android:layout_height="200dp"
             android:layout_alignParentTop="true" />
 
-        <TextView
-            android:id="@+id/textViewPopularPlaylists"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Popular Playlists"
-            android:textSize="18sp"
-            android:layout_below="@id/recyclerViewBanners"
-            android:layout_marginTop="16dp"/>
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewPopularPlaylists"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/textViewPopularPlaylists"
+            android:layout_below="@id/recyclerViewBanners"
             android:layout_alignParentTop="true"
             android:padding="16dp"
             android:layout_marginTop="8dp"/>

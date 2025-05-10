@@ -9,4 +9,7 @@
     <string name="title_song">عنوان آهنگ</string>
     <string name="name_khanandeh">نام خواننده</string>
     <string name="songs">آهنگ‌ها</string>
+
+    <string name="default_web_client_id">AIzaSyBZS6XuDMhysWbzr2-0wVCWHoPh7x7Hs4c</string>
 </resources>
+

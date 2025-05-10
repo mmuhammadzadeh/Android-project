@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFF">
 
-    <TextView
+    <ImageView
+        android:layout_width="243dp"
+        android:layout_height="288dp"
         android:layout_gravity="center"
         android:text="حساب کاربری"
+        android:textColor="#333"
         android:textSize="22sp"
         android:textStyle="bold"
-        android:textColor="#333"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        app:srcCompat="@drawable/ic_account" />
 </FrameLayout>

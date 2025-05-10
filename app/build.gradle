@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    id 'com.google.gms.google-services' version '4.4.2'
 }
 
 android {
@@ -8,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.mymusicapp"
-        minSdk 21
+        minSdk 23
         targetSdk 35
         versionCode 1
         versionName "1.0"
@@ -22,6 +23,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
@@ -29,7 +31,6 @@ android {
 }
 
 dependencies {
-
     implementation libs.appcompat
     implementation libs.material
     implementation libs.activity
@@ -44,7 +45,26 @@ dependencies {
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
-    implementation "androidx.room:room-runtime:2.5.0" // نسخه مناسب Room
-    annotationProcessor "androidx.room:room-compiler:2.5.0" // برای کامپایلر
-    implementation "androidx.room:room-ktx:2.5.0" // اگر از Kotlin استفاده می‌کنید
+
+    // Room
+    implementation "androidx.room:room-runtime:2.5.0"
+    annotationProcessor "androidx.room:room-compiler:2.5.0"
+
+    // Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    // Firebase BoM
+    implementation platform('com.google.firebase:firebase-bom:33.13.0')
+
+    // Firebase Core
+    implementation 'com.google.firebase:firebase-analytics'
+
+    // Firebase Auth
+    implementation 'com.google.firebase:firebase-auth:22.3.0'
+
+    // Google Sign-In
+    implementation 'com.google.android.gms:play-services-auth:21.0.0'
 }
+
+apply plugin: 'com.google.gms.google-services' // 👈 باید این بیرون باشه
