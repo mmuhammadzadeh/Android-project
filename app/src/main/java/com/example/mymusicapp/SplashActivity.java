@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -16,6 +17,7 @@ public class SplashActivity extends AppCompatActivity {
 
         new Handler().postDelayed(() -> {
             Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+            intent.putExtra("openAccount", true); // نشون بده که باید فرگمنت Account باز شه
             startActivity(intent);
             finish();
         }, SPLASH_TIME);

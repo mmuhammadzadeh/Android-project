@@ -7,7 +7,6 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="bottom_nav_color">#FFFFFF</color>
 
     <!-- رنگ‌های کلی برنامه -->
     <color name="background_dark">#121212</color>
@@ -19,5 +18,21 @@
     <color name="text_secondary">#B3B3B3</color>
     <color name="text_hint">#808080</color>
     <color name="text_disabled">#404040</color>
+
+    <!-- رنگ‌های مشترک -->
+    <color name="gold">#FFD700</color>
+    <color name="glass_black">#E9000000</color> <!-- سیاه شیشه‌ای با شفافیت 50% -->
+
+    <!-- رنگ‌های تم شب -->
+    <color name="night_primary">@color/gold</color>
+    <color name="night_background">#121212</color>
+
+    <!-- رنگ‌های تم روز -->
+    <color name="day_primary">@color/gold</color>
+    <color name="day_background">#F5F5F5</color>
+
+    <!-- رنگ‌های نویگیشن بار -->
+    <color name="bottom_nav_color">@color/gold</color>
+    <color name="bottom_nav_background">@color/glass_black</color>
 
 </resources>

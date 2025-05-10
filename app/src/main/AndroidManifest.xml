@@ -14,24 +14,18 @@
         android:roundIcon="@drawable/ic_music_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyMusicApp"
-        tools:targetApi="31">
-        <activity
-            android:name=".SplashActivity"
-            android:exported="true">
+        tools:targetApi="33">
+        <activity android:name=".SplashActivity" android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MusicPlayerActivity"
-            android:exported="false" />
+        <activity android:name=".MusicPlayerActivity" android:exported="true" />
         <activity android:name=".PlaylistDetailsActivity"/>
         <activity android:name=".GoogleSignInActivity" android:exported="true" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true" />
+        <activity android:name=".MainActivity" android:exported="true" />
     </application>
 
 </manifest>

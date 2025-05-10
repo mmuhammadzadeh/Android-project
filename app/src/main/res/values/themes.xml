@@ -1,23 +1,43 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Theme.MyMusicApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- رنگ‌های اصلی -->
-        <item name="colorPrimary">#BFB035</item>
-        <item name="colorPrimaryVariant">#67A817</item>
-        <item name="colorOnPrimary">#FFFFFF</item>
-
-        <!-- پس‌زمینه و متن -->
-        <item name="android:windowBackground">#8EB2B4</item>
-        <item name="android:colorBackground">#160F0F</item>
         <item name="android:textColor">#FFFFFF</item>
-
-        <!-- رنگ نوار پایین -->
-        <item name="bottomNavigationStyle">@style/Widget.BottomNavigationView.Dark</item>
-
         <!-- فونت -->
         <item name="android:fontFamily">@font/roboto</item>
         <!-- Hide the Title Bar and Action Bar -->
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
+
+        <!-- رنگ‌های اصلی -->
+        <item name="colorPrimary">@color/day_primary</item>
+        <item name="colorPrimaryVariant">@color/gold</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <!-- پس‌زمینه -->
+        <item name="android:windowBackground">@color/day_background</item>
+        <item name="android:colorBackground">@color/day_background</item>
+
+        <!-- نویگیشن بار -->
+        <item name="bottomNavigationStyle">@style/Widget.MyMusicApp.BottomNavigation.Day</item>
+
+        <!-- اکشن بار (شفاف) -->
+        <item name="actionBarStyle">@style/Widget.MyMusicApp.ActionBar.Transparent</item>
+        <item name="windowActionBarOverlay">true</item>
+    </style>
+
+    <!-- استایل نویگیشن بار برای تم روز -->
+    <style name="Widget.MyMusicApp.BottomNavigation.Day" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="android:background">@color/glass_black</item>
+        <item name="itemIconTint">@color/bottom_nav_color</item>
+        <item name="itemTextColor">@color/bottom_nav_color</item>
+        <item name="itemRippleColor">@color/gold</item>
+        <item name="materialThemeOverlay">@style/ThemeOverlay.MyMusicApp.BottomNavigation.Day</item>
+    </style>
+
+    <!-- استایل اکشن بار شفاف -->
+    <style name="Widget.MyMusicApp.ActionBar.Transparent" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="background">@android:color/transparent</item>
+        <item name="elevation">0dp</item>
     </style>
 
     <!-- نوار پایین سفارشی -->

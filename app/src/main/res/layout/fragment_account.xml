@@ -22,14 +22,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="24dp">
+            android:padding="29dp">
 
             <ImageView
                 android:id="@+id/logo_image"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
-                android:layout_marginBottom="24dp"
+                android:layout_marginBottom="17dp"
                 android:contentDescription="@string/app_logo"
                 app:srcCompat="@drawable/ic_account"
                 app:tint="#D4AF37" />
@@ -38,7 +38,7 @@
                 android:id="@+id/tab_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="8dp"
                 app:tabBackground="@android:color/transparent"
                 app:tabIndicatorAnimationMode="elastic"
                 app:tabIndicatorColor="#D4AF37"
@@ -73,7 +73,7 @@
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
+                        android:layout_marginBottom="8dp"
                         android:hint="@string/username_or_email"
                         app:boxStrokeColor="#D4AF37"
                         app:hintTextColor="#D4AF37">
@@ -92,7 +92,7 @@
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
+                        android:layout_marginBottom="8dp"
                         android:hint="@string/password"
                         app:boxStrokeColor="#D4AF37"
                         app:endIconMode="password_toggle"
@@ -113,7 +113,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
-                        android:layout_marginBottom="16dp"
+                        android:layout_marginBottom="8dp"
                         android:padding="4dp"
                         android:text="@string/forgot_password"
                         android:textColor="#AAAAAA"
@@ -123,7 +123,7 @@
                         android:id="@+id/login_button"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
-                        android:layout_marginBottom="16dp"
+                        android:layout_marginBottom="8dp"
                         android:backgroundTint="#D4AF37"
                         android:text="@string/login"
                         android:textColor="#000000"
@@ -134,7 +134,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
+                        android:layout_marginBottom="8dp"
                         android:gravity="center"
                         android:text="@string/or"
                         android:textColor="#AAAAAA" />
@@ -144,6 +144,7 @@
                         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
+                        android:layout_marginBottom="25dp"
                         android:contentDescription="@string/google_sign_in"
                         android:text="@string/google_sign_in"
                         android:textColor="#FFFFFF"

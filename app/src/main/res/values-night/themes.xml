@@ -1,10 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Theme.MyMusicApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">#3D8AAD</item>
-        <item name="colorPrimaryVariant">#1A3FAD</item>
-        <item name="colorOnPrimary">#1F0303</item>
+
         <!-- Secondary brand color. -->
         <item name="colorSecondary">#8E0D3D</item>
         <item name="colorSecondaryVariant">#E92A1C</item>
@@ -15,5 +12,36 @@
         <!-- Hide the Title Bar and Action Bar -->
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
+
+        <!-- رنگ‌های اصلی -->
+        <item name="colorPrimary">@color/night_primary</item>
+        <item name="colorPrimaryVariant">@color/gold</item>
+        <item name="colorOnPrimary">@color/black</item>
+
+        <!-- پس‌زمینه -->
+        <item name="android:windowBackground">@color/night_background</item>
+        <item name="android:colorBackground">@color/night_background</item>
+
+        <!-- نویگیشن بار -->
+        <item name="bottomNavigationStyle">@style/Widget.MyMusicApp.BottomNavigation.Night</item>
+
+        <!-- اکشن بار (شفاف) -->
+        <item name="actionBarStyle">@style/Widget.MyMusicApp.ActionBar.Transparent</item>
+        <item name="windowActionBarOverlay">true</item>
+    </style>
+
+    <!-- استایل نویگیشن بار برای تم شب -->
+    <style name="Widget.MyMusicApp.BottomNavigation.Night" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="android:background">@color/glass_black</item>
+        <item name="itemIconTint">@color/bottom_nav_color</item>
+        <item name="itemTextColor">@color/bottom_nav_color</item>
+        <item name="itemRippleColor">@color/gold</item>
+        <item name="materialThemeOverlay">@style/ThemeOverlay.MyMusicApp.BottomNavigation.Night</item>
+    </style>
+    <!-- استایل اکشن بار شفاف -->
+    <style name="Widget.MyMusicApp.ActionBar.Transparent" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="background">@android:color/transparent</item>
+        <item name="elevation">0dp</item>
     </style>
 </resources>

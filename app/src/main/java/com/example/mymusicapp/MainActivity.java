@@ -43,6 +43,12 @@ public class MainActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
             return true;
         });
-
+        // بررسی اینکه کدوم فرگمنت باید اول نمایش داده بشه
+        boolean openAccount = getIntent().getBooleanExtra("openAccount", false);
+        if (openAccount) {
+            bottomNav.setSelectedItemId(R.id.nav_account); // رفتن مستقیم به فرگمنت حساب کاربری
+        } else {
+            bottomNav.setSelectedItemId(R.id.nav_home); // پیش‌فرض: خانه
+        }
     }
 }

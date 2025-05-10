@@ -77,6 +77,8 @@ public class GoogleSignInActivity extends AppCompatActivity {
                         FirebaseUser user = mAuth.getCurrentUser();
                         // مثلاً نمایش نام کاربر در Log یا صفحه دیگر
                         Log.d("GoogleSignIn", "User: " + user.getDisplayName());
+                        Intent intent = new Intent(GoogleSignInActivity.this, MainActivity.class);
+                        startActivity(intent);
                     } else {
                         // اگر ورود ناموفق بود
                         Log.w("GoogleSignIn", "signInWithCredential:failure", task.getException());
