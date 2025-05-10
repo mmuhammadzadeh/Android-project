@@ -57,15 +57,6 @@ public class HomeFragment extends Fragment {
 
         loadDataFromServer();
 
-        Button btnGoogleSignIn = view.findViewById(R.id.btnGoogleSignIn);
-        btnGoogleSignIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(requireActivity(), GoogleSignInActivity.class);
-                startActivity(intent);
-            }
-        });
-
         return view;
     }
 

@@ -10,6 +10,44 @@
     <string name="name_khanandeh">نام خواننده</string>
     <string name="songs">آهنگ‌ها</string>
 
-    <string name="default_web_client_id">AIzaSyBZS6XuDMhysWbzr2-0wVCWHoPh7x7Hs4c</string>
+    <string name="default_web_client_id">330341740014-14mr2ugctposigmqe2bgil2efcmclnnq.apps.googleusercontent.com</string>
+
+    <!-- عبارات صفحه ورود -->
+    <string name="login">ورود</string>
+    <string name="username_or_email">نام کاربری یا ایمیل</string>
+    <string name="password">رمز عبور</string>
+    <string name="forgot_password">رمز عبور را فراموش کرده‌اید؟</string>
+    <string name="or">یا</string>
+    <string name="google_login">ورود با گوگل</string>
+    <string name="user_icon">آیکون کاربر</string>
+
+    <!-- پیام‌های خطا -->
+    <string name="error_field_required">این فیلد الزامی است</string>
+    <string name="error_invalid_username">نام کاربری نامعتبر است</string>
+    <string name="error_invalid_password">رمز عبور باید حداقل ۵ کاراکتر باشد</string>
+    <string name="error_login_failed">نام کاربری یا رمز عبور اشتباه است</string>
+
+    <!-- فراموشی رمز عبور -->
+    <string name="forgot_password_title">بازیابی رمز عبور</string>
+    <string name="forgot_password_message">لطفاً ایمیل خود را وارد کنید. ما کد بازیابی رمز عبور را برای شما ارسال خواهیم کرد.</string>
+    <string name="email">ایمیل</string>
+    <string name="send_reset_code">ارسال کد بازیابی</string>
+    <string name="back_to_login">بازگشت به صفحه ورود</string>
+    <string name="reset_password_icon">آیکون بازیابی رمز عبور</string>
+
+    <!-- پیام‌های خطا و موفقیت -->
+    <string name="email_sent_success">کد بازیابی با موفقیت به ایمیل شما ارسال شد</string>
+    <string name="email_sent_error">خطا در ارسال کد بازیابی. لطفاً دوباره تلاش کنید</string>
+    <string name="invalid_email">لطفاً یک ایمیل معتبر وارد کنید</string>
+    <string name="no_internet">اتصال به اینترنت برقرار نیست</string>
+    <string name="please_wait">لطفاً صبر کنید…</string>
+
+    <string name="app_logo">لوگوی برنامه</string>
+    <string name="register">ثبت‌نام</string>
+    <string name="username">نام کاربری</string>
+    <string name="age">سن</string>
+    <string name="google_sign_in">ورود با گوگل</string>
+    <string name="error_invalid_email">ایمیل نامعتبر است</string>
+
 </resources>
 

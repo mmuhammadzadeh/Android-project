@@ -22,7 +22,7 @@
 
     <!-- نوار پایین سفارشی -->
     <style name="Widget.BottomNavigationView.Dark" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
-        <item name="android:background">#4CAF50</item>
+        <item name="android:background">#2D2D2D</item>
         <item name="itemIconTint">@color/bottom_nav_color</item>
         <item name="itemTextColor">@color/bottom_nav_color</item>
     </style>
