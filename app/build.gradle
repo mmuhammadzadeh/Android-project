@@ -44,4 +44,7 @@ dependencies {
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
+    implementation "androidx.room:room-runtime:2.5.0" // نسخه مناسب Room
+    annotationProcessor "androidx.room:room-compiler:2.5.0" // برای کامپایلر
+    implementation "androidx.room:room-ktx:2.5.0" // اگر از Kotlin استفاده می‌کنید
 }
