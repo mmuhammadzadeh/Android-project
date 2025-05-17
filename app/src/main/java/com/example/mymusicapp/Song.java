@@ -10,6 +10,11 @@ public class Song {
     private String artist;
     private String path;
 
+    public Song(String title, int id) {
+        this.title = title;
+        this.id = id;
+    }
+
     // Getters and Setters
     public int getId() {
         return id;

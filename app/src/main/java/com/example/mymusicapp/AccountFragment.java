@@ -32,6 +32,11 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.firestore.FieldValue;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class AccountFragment extends Fragment {
 
@@ -45,6 +50,8 @@ public class AccountFragment extends Fragment {
     private GoogleSignInClient mGoogleSignInClient;
     private MaterialButton googleSignInButton;
     private FirebaseAuth mAuth;
+    private FirebaseFirestore db;
+
     private static final int RC_SIGN_IN = 9001;
 
     public AccountFragment() {
@@ -66,6 +73,7 @@ public class AccountFragment extends Fragment {
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
 
         // Initialize UI elements
         tabLayout = view.findViewById(R.id.tab_layout);
@@ -234,9 +242,14 @@ public class AccountFragment extends Fragment {
                     .addOnCompleteListener(task -> {
                         showProgress(false);
                         if (task.isSuccessful()) {
+                            // Save user data to Firestore
+                            String userId = mAuth.getCurrentUser().getUid();
+                            int age = Integer.parseInt(ageStr);
+                            saveUserDataToFirestore(userId, username, email, age);
                             Toast.makeText(requireContext(), "ثبت‌نام موفقیت‌آمیز", Toast.LENGTH_SHORT).show();
                             navigateToHome();
                         } else {
+                            showProgress(false);
                             Toast.makeText(requireContext(), "خطا: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
@@ -307,6 +320,13 @@ public class AccountFragment extends Fragment {
                     if (task.isSuccessful()) {
                         Toast.makeText(requireContext(), "ورود با گوگل موفقیت‌آمیز", Toast.LENGTH_SHORT).show();
                         navigateToHome();
+                        // Save Google user data to Firestore if new user
+                        if (task.getResult().getAdditionalUserInfo().isNewUser()) {
+                            String userId = mAuth.getCurrentUser().getUid();
+                            String username = mAuth.getCurrentUser().getDisplayName();
+                            String email = mAuth.getCurrentUser().getEmail();
+                            saveUserDataToFirestore(userId, username != null ? username : "User", email, 0); // Age set to 0 for Google users
+                        }
                     } else {
                         Toast.makeText(requireContext(), "خطا: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
@@ -330,6 +350,24 @@ public class AccountFragment extends Fragment {
                     .addToBackStack(null)
                     .commit();
         }
+    }
+
+    private void saveUserDataToFirestore(String userId, String username, String email, int age) {
+        Map<String, Object> userData = new HashMap<>();
+        userData.put("uid", userId); // اضافه کردن uid
+        userData.put("username", username);
+        userData.put("email", email);
+        userData.put("age", age);
+        userData.put("createdAt", FieldValue.serverTimestamp());
+
+        db.collection("users").document(userId)
+                .set(userData)
+                .addOnSuccessListener(aVoid -> {
+                    Log.d("Firestore", "User " + userId + " data saved successfully");
+                })
+                .addOnFailureListener(e -> {
+                    Log.e("Firestore", "Error saving user " + userId + " data", e);
+                });
     }
 
     private void showProgress(boolean show) {

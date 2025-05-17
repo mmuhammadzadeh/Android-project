@@ -8,19 +8,19 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mymusicapp.R;
-import com.example.mymusicapp.Song;
-
 import java.util.List;
 
 public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongViewHolder> {
 
     private List<Song> songList;
-
+    private OnSongClickListener listener;
+    public interface OnSongClickListener {
+        void onSongClick(Song song);
+    }
     public SongAdapter(List<Song> songList) {
         this.songList = songList;
+        this.listener = listener;
     }
-
     @NonNull
     @Override
     public SongViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
